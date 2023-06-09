@@ -1,0 +1,61 @@
+html {
+    height: 100%;
+}
+
+body {
+    margin: 0;
+    font-family: Verdana, sans-serif;
+    background-image: linear-gradient(123deg, #9d7777, #643c3c);
+}
+
+h1 {
+    font-size: 10em;
+}
+
+h2 {
+    font-size: 6em;
+}
+
+#contents {
+    margin: 4em;
+}
+
+#effect-name {
+    text-align: center;
+}
+
+#footer {
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+    background-color: grey;
+    display: flex;
+}
+
+#previous-effect {
+    background-color: rgb(29, 179, 179);
+    flex-grow: 1;
+}
+
+#stop-matrix {
+    background-color: rgb(104, 104, 104);
+}
+
+#next-effect {
+    background-color: rgb(175, 92, 134);
+    flex-grow: 1;
+}
+
+#previous-effect, #next-effect, #stop-matrix{
+    padding: 3em;
+    text-align: center;
+    display: block;
+    color: black;
+    margin: 0.5em;
+}
+
+.material-icons.md-18 { font-size: 18px; }
+.material-icons.md-24 { font-size: 24px; }
+.material-icons.md-36 { font-size: 36px; }
+.material-icons.md-48 { font-size: 48px; }
+.material-icons.md-huge { font-size: 160px; }
