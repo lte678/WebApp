@@ -59,7 +59,6 @@ def create_app():
     @app.route("/")
     def home():
         nonlocal effects
-        get_app_settings(conn, "colorwave")
         try:
             # Try to use cached effects to serve the page faster.
             if effects is None:
