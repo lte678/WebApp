@@ -1,0 +1,11 @@
+[Unit]
+Description=LED matrix web UI service
+
+[Service]
+Type=simple
+Restart=always
+RestartSec=10
+ExecStart=/bin/bash -c "cd /home/pi/WebApp; python3 -m flask run --host 0.0.0.0 --port 80"
+
+[Install]
+WantedBy=multi-user.target
