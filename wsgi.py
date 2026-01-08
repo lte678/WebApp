@@ -1,7 +1,7 @@
 from flask import Flask, render_template, redirect, url_for, request
 from scripts.matrixcom import MatrixConnection, NotConnected
 
-host="192.168.178.5"
+host="matrixpi"
 port=8252
 
 
@@ -10,6 +10,10 @@ def get_matrixcom_effects(conn: MatrixConnection) -> list[str]:
     effects = conn.send_command(['apps'])
     return [e[3:] for e in effects.split('\n')]
 
+
+def get_active_effect(conn: MatrixConnection) -> str:
+    """ Returns the currently displayed effect of the LED matrix or "none". """
+    return conn.send_command(['active'])
 
 def get_app_settings(conn: MatrixConnection, app: str) -> dict[str, bool | float | int | str]:
     """ Returns a dictionary of properties and their value for `app`. """
@@ -63,6 +67,7 @@ def create_app():
             # Try to use cached effects to serve the page faster.
             if effects is None:
                 effects = get_matrixcom_effects(conn)
+            active_effect = get_active_effect(conn)
             brightness = get_app_settings(conn, "matrix")["brightness"]
             return render_template(
                 'index.html',
